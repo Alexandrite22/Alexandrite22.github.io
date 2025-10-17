@@ -1,0 +1,35 @@
+{
+    "bio": {
+        "title": "About Me:",
+        "content": "Despite attending Tech Elevator in 2022 a majority of my skills are self taught. I directly enjoy the act of learning and executing and I derive satisfaction on seeing results. I enjoy baking quality into my work and I struggle to just \"make it work for now\". I enjoy familiarizing myself with a project's entire roadmap to accurately predict when code should needs extra attention and when code needs to just work. I rarely vibe code, I prefer to give AI explicit instructions to automate tasks as a time saving measure or I will ask AI to explain things I do not fully understand. In my experience AI is a fantastic time saver, but it is not a replacement for a developers experience."
+    },
+    "hardSkills": {
+        "title": "Technical Overview:",
+        "content": [
+            "React",
+            "Vue.js",
+            "Bootstrap",
+            "Emotion",
+            "Chakra V2",
+            "MUI",
+            "Figma",
+            "Tanstack Router & Query",
+            "NODE.js",
+            ".NET",
+            "Django",
+            "Postman",
+            "Cypress e2e testing",
+            "xUnit testing",
+            "Basic Technical roadmapping",
+            "AXE compliance tooling",
+            "Basic Docker",
+            "Basic Java ",
+            "Micronaut Beginner",
+            "Spring/Springboot Beginner"
+        ]
+    },
+    "softSkills": {
+        "title": "Workstyle:",
+        "content": "I value clear communication and I am able to effectively communicate with my team and clients. I pride myself on being able to read tone and non-verbal cues, even across different cultures and language barriers in order to adjust the direction of conversation to ensure no one is left in the dark. Within teams, I pride myself in passively learning the learning styles and communication behaviours of my team members to ensure smoother collaboration as time goes on. I like to perform initial technical handoffs early to allow everyone has more than enough time to ask questions they may not have thought of during the initial handoff, as someone who suffers from information overload, I always have follow up questions myself."
+    }
+}

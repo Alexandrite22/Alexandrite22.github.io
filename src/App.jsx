@@ -1,19 +1,17 @@
 import {
   Box,
-  Flex,
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
-import BioCard from './components/BioCard';
 import staticBG from './assets/staticBG.jpg';
 import Footer from './components/Footer';
-import BioDesc from './components/BioDesc';
-import HardSkillsCard from './components/HardSkillsCard';
-import SoftSkillCard from './components/SoftSkillCard';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './views/HomePage';
+import { useResponsiveSizes } from './hooks/useScreenSize';
 
-function App() {
-  const { colorMode, toggleColorMode } = useColorMode();
 
+function App() { 
+  const { respEM, respSmall } = useResponsiveSizes();
   const bgOverlay = useColorModeValue(
     'rgba(255, 255, 255, 0.4)',
     'rgba(26, 32, 44, 0.4)'
@@ -30,12 +28,12 @@ function App() {
       backgroundImage={`url(${staticBG})`}
       backgroundSize="cover"
       backgroundPosition="center"
-      p="1.25rem"
+      p={respEM}
       height="100vh"
       position="relative"
       display="flex"
       flexDirection="column"
-      gap="1.5rem"
+      gap={respEM}
       alignItems="center"
       _before={{
         content: '""',
@@ -51,33 +49,23 @@ function App() {
       <Box
         id="main-container"
         position="relative"
-        p="1.5rem"
+        p={respEM}
         bg={mainBg}
         w="full"
         flex={1}
-        borderRadius="1rem"
+        borderRadius={respSmall}
         boxShadow="md"
         display="flex"
         flexDirection="column"
         alignItems="flex-start"
         justifyContent="flex-start"
         overflow={{ base: 'auto', md: 'auto', lg: 'hidden', xl: 'hidden' }}
-        gap="1rem"
+        gap={respEM}
         backdropFilter="blur(10px)"
       >
-        <BioCard />
-        <Flex
-          flexDirection={{ base: 'column', md: 'column', lg: 'row' }}
-          justifyContent="space-between"
-          alignItems={{ base: 'flex-start', lg: 'stretch' }}
-          gap="1rem"
-          flex={1}
-          minH={0}
-        >
-          <BioDesc />
-          <HardSkillsCard />
-          <SoftSkillCard />
-        </Flex>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
       </Box>
       <Footer />
     </Box>
