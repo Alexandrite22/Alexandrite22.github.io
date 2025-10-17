@@ -1,9 +1,9 @@
 import { VStack, Heading, Text } from '@chakra-ui/react';
-import { useResponsiveSizes } from '../hooks/useScreenSize';
+import { useResponsiveSizes, useScreenSize } from '../hooks/useScreenSize';
 
 const InfoCard = ({ title, content }) => {
     const { respEM, respTextSize, respHeadingSize, respSmall } = useResponsiveSizes();
-
+    const { isLandscape } = useScreenSize();
     return (
         <VStack
             bg="background-card"
@@ -20,7 +20,7 @@ const InfoCard = ({ title, content }) => {
                 fontWeight="bold"
                 fontSize={respHeadingSize}
                 borderRadius={`${respSmall} ${respSmall} 0 0`}
-                color="text-primary" position="sticky" top={0} zIndex={1} >{title}</Heading>
+                color="text-primary" position={isLandscape ? "sticky" : "static"} top={0} zIndex={1} >{title}</Heading>
             {Array.isArray(content) ? (
                 <VStack
                     id="description"
