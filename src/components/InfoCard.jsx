@@ -1,44 +1,46 @@
-import { VStack, Heading, Text } from '@chakra-ui/react';
+import { VStack, Heading, Text, UnorderedList, ListItem } from '@chakra-ui/react';
 import { useResponsiveSizes, useScreenSize } from '../hooks/useScreenSize';
 
 const InfoCard = ({ title, content }) => {
-    const { respEM, respTextSize, respHeadingSize, respSmall } = useResponsiveSizes();
+    const { respSM, respMD, respLG } = useResponsiveSizes();
     const { isLandscape } = useScreenSize();
     return (
         <VStack
             bg="background-card"
-            borderRadius={respSmall}
+            borderRadius={respSM}
             boxShadow="md"
             width="full"
-            height={{lg: "full"}}
-            overflowY={{lg: "auto"}}
+            height={isLandscape ? "full" : "auto"}
+            overflowY={isLandscape ? "auto" : "hidden"}
+            display="flex"
+            flexDirection="column"
+            alignItems="flex-start"
+            justifyContent="flex-start"
             >
             <Heading
-                p={respEM}
+                p={respSM}
                 w="full"
                 bg="background-card"
                 fontWeight="bold"
-                fontSize={respHeadingSize}
-                borderRadius={`${respSmall} ${respSmall} 0 0`}
+                fontSize={respLG}
+                borderRadius={`${respSM} ${respSM} 0 0`}
                 color="text-primary" position={isLandscape ? "sticky" : "static"} top={0} zIndex={1} >{title}</Heading>
             {Array.isArray(content) ? (
-                <VStack
+                <UnorderedList
                     id="description"
-                    p={`0 ${respEM} ${respEM} ${respEM}`}
+                    p={`0 ${respSM} ${respSM} ${respSM}`}
                     color="text-primary"
-                    fontSize={respTextSize}
-                    alignItems="flex-start"
-                    width="full"
+                    fontSize={respMD}
                     >
                     {content.map((item, index) => (
-                        <Text key={index}>{item}</Text>
+                        <ListItem key={index}>{item}</ListItem>
                     ))}
-                </VStack>
+                </UnorderedList>
                 ) : (
                     <Text
-                        p={`0 ${respEM} ${respEM} ${respEM}`}
+                        p={`0 ${respSM} ${respSM} ${respSM}`}
                         color="text-primary"
-                        fontSize={respTextSize}
+                        fontSize={respMD}
                         >
                         {content}
                     </Text>

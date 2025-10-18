@@ -42,12 +42,13 @@ export function useDiagonalBreakpointValue(values) {
 }
 
 export function useResponsiveSizes() {
-  const respEM = useDiagonalBreakpointValue({ base: '0.5rem', sm: '0.75rem', md: '1rem', lg: '1.25rem', xl: '1.5rem', '2xl': '1.75rem' });
-  const respSmall = useDiagonalBreakpointValue({ base: '0.25rem', sm: '0.325rem', md: '0.5rem', lg: '0.75rem', xl: '1rem', '2xl': '1.25rem' });
-  const respTextSize = useDiagonalBreakpointValue({ base: '0.75rem', sm: '1rem', md: '1.125rem', lg: '1.25rem', xl: '1.325rem', '2xl': '1.5rem' });
-  const respHeadingSize = useDiagonalBreakpointValue({ base: '1rem', sm: '1.25rem', md: '1.5rem', lg: '1.75rem', xl: '2rem', '2xl': '2.5rem' });
-  
-    return { respEM, respSmall, respTextSize, respHeadingSize };
+  const respXS = useDiagonalBreakpointValue({ base: '0.125rem', sm: '0.25rem', md: '0.375rem', lg: '0.5rem', xl: '0.625rem', '2xl': '0.75rem' });
+  const respSM = useDiagonalBreakpointValue({ base: '0.25rem', sm: '0.325rem', md: '0.5rem', lg: '0.75rem', xl: '1rem', '2xl': '1.25rem' });
+  const respMD = useDiagonalBreakpointValue({ base: '0.75rem', sm: '1rem', md: '1.125rem', lg: '1.25rem', xl: '1.325rem', '2xl': '1.5rem' });
+  const respLG = useDiagonalBreakpointValue({ base: '1rem', sm: '1.25rem', md: '1.5rem', lg: '1.75rem', xl: '2rem', '2xl': '2.5rem' });
+  const respXL = useDiagonalBreakpointValue({ base: '1.25rem', sm: '1.5rem', md: '1.75rem', lg: '2rem', xl: '2.5rem', '2xl': '3rem' });
+  const resp2XL = useDiagonalBreakpointValue({ base: '1.5rem', sm: '1.75rem', md: '2rem', lg: '2.5rem', xl: '3rem', '2xl': '3.5rem' });
+    return { respXS, respSM, respMD, respLG, respXL, resp2XL };
 
 }
 

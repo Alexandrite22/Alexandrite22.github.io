@@ -4,40 +4,40 @@ import { useScreenSize, useDiagonalBreakpointValue, useResponsiveSizes } from '.
 
 const BioCard = () => {
   const { isLandscape } = useScreenSize();
-  const { respEM, respSmall, respHeadingSize, respTextSize } = useResponsiveSizes();
+  const { respSM, respLG, respMD } = useResponsiveSizes();
   const pfpSize = useDiagonalBreakpointValue({ base: "100px", sm: "150px", md: "200px", lg: "250px", xl: "300px", '2xl': "350px" });
   return (
     <Flex 
-        spacing={respEM} 
+        spacing={respSM} 
         flexDirection="row"
         alignItems="flex-start" 
         justifyContent="flex-start" 
-        gap={respEM}
+        gap={respSM}
         bg="background-card"
-        p={respEM}
-        borderRadius={respSmall}
+        p={respSM}
+        borderRadius={respSM}
         boxShadow="md"
         width="full"
         >
         {isLandscape ? (
                 <>
                     <Image
-                        borderRadius={respSmall}
+                        borderRadius={respSM}
                         boxSize={pfpSize}
                         src={pfp}
                         alt="Profile Picture"
                     />
                     <VStack alignItems="flex-start" justifyContent="space-between" height="full">
                         <VStack alignItems="flex-start" justifyContent="flex-start">
-                            <Heading fontWeight="bold" fontSize={respHeadingSize} color="text-primary">
+                            <Heading fontWeight="bold" fontSize={respLG} color="text-primary">
                                 Alex Hewson
                             </Heading>
-                            <Text color="text-primary" fontSize={respTextSize}>
+                            <Text color="text-primary" fontSize={respMD}>
                                 Full Stack Developer. I thrive on biting off more than I can chew.
                             </Text>
                         </VStack>
                         <VStack alignItems="flex-start" justifyContent="flex-start">
-                            <Text id="description" mt={2} color="text-primary" fontSize={respTextSize}>
+                            <Text id="description" mt={2} color="text-primary" fontSize={respMD}>
                                 Located in Denver, Colorado, USA.
                                 <br />
                                 Email: <Link href='mailto:Alex.hewson.1122@gmail.com'>Alex.hewson.1122@gmail.com</Link>
@@ -50,24 +50,24 @@ const BioCard = () => {
             ) : (
                 <>
                     <VStack alignItems="flex-start" justifyContent="space-between" height="full">
-                        <HStack alignItems="flex-start" justifyContent="flex-start" gap={4}>
+                        <HStack alignItems="flex-start" justifyContent="flex-start" gap={respSM}>
                             <Image
-                                borderRadius={respSmall}
+                                borderRadius={respSM}
                                 boxSize={pfpSize}
                                 src={pfp}
                                 alt="Profile Picture"
                             />
                             <VStack alignItems="flex-start" justifyContent="flex-start">
-                                <Heading fontWeight="bold" fontSize={respHeadingSize} color="text-primary">
+                                <Heading fontWeight="bold" fontSize={respLG} color="text-primary">
                                     Alex Hewson
                                 </Heading>
-                                <Text color="text-primary" fontSize={respTextSize}>
+                                <Text color="text-primary" fontSize={respMD}>
                                     Full Stack Developer. I thrive on biting off more than I can chew.
                                 </Text>
                             </VStack>
                         </HStack>
                         <VStack alignItems="flex-start" justifyContent="flex-start">
-                            <Text id="description" mt={2} color="text-primary" fontSize={respTextSize}>
+                            <Text id="description" mt={respSM} color="text-primary" fontSize={respMD}>
                                 Located in Denver, Colorado, USA.
                                 <br />
                                 Email: <Link href='mailto:Alex.hewson.1122@gmail.com'>Alex.hewson.1122@gmail.com</Link>

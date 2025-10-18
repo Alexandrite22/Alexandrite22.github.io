@@ -7,11 +7,12 @@ import staticBG from './assets/staticBG.jpg';
 import Footer from './components/Footer';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './views/HomePage';
-import { useResponsiveSizes } from './hooks/useScreenSize';
+import { useResponsiveSizes, useScreenSize } from './hooks/useScreenSize';
 
 
 function App() { 
-  const { respEM, respSmall } = useResponsiveSizes();
+  const { isLandscape } = useScreenSize();
+  const { respSM } = useResponsiveSizes();
   const bgOverlay = useColorModeValue(
     'rgba(255, 255, 255, 0.4)',
     'rgba(26, 32, 44, 0.4)'
@@ -28,12 +29,12 @@ function App() {
       backgroundImage={`url(${staticBG})`}
       backgroundSize="cover"
       backgroundPosition="center"
-      p={respEM}
+      p={respSM}
       height="100vh"
       position="relative"
       display="flex"
       flexDirection="column"
-      gap={respEM}
+      gap={respSM}
       alignItems="center"
       _before={{
         content: '""',
@@ -49,18 +50,18 @@ function App() {
       <Box
         id="main-container"
         position="relative"
-        p={respEM}
+        p={respSM}
         bg={mainBg}
         w="full"
         flex={1}
-        borderRadius={respSmall}
+        borderRadius={respSM}
         boxShadow="md"
         display="flex"
-        flexDirection="column"
+        flexDirection="row"
         alignItems="flex-start"
         justifyContent="flex-start"
-        overflow={{ base: 'auto', md: 'auto', lg: 'hidden', xl: 'hidden' }}
-        gap={respEM}
+        overflow={isLandscape ? 'hidden' : 'auto'}
+        gap={respSM}
         backdropFilter="blur(10px)"
       >
         <Routes>
