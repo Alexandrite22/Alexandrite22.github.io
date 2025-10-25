@@ -15,9 +15,11 @@ import {
   clearAlerts,
   clearDontShowAgainList,
   removeAlertBySource,
-} from "@/lib/alerts"
+} from "../lib/alerts"
+import { useScreenSize } from "../hooks/useScreenSize";
 
-export default function DevAlert() {
+export default function AlertsShowcase() {
+  const { isLandscape } = useScreenSize();
   const addInfoAlert = () => {
     addAlert(AlertType.INFO, "INFO", "This is an info alert")
   }
@@ -170,44 +172,45 @@ export default function DevAlert() {
   }
 
   return (
-    <SimpleGrid columns={{ base: 1, lg: 3 }} gap={4} height="100%">
+    <SimpleGrid columns={isLandscape ? 3 : 1} gap={4}>
       <VStack
         bg="white"
         boxShadow="md"
         borderRadius="0.5em"
-        height="100%"
         padding="1em"
         justifyContent="space-between"
+        height={isLandscape ? "full" : "auto"}
+        overflowY={isLandscape ? "auto" : "hidden"}
       >
         <VStack width="100%">
           <HStack justifyContent="space-between" width="100%">
             <Text>Add Info Alert</Text>
-            <Button variant="primary" color="white" onClick={addInfoAlert}>
+            <Button onClick={addInfoAlert}>
               <AddIcon />
             </Button>
           </HStack>
           <HStack justifyContent="space-between" width="100%">
             <Text>Add Error Alert</Text>
-            <Button variant="primary" color="white" onClick={addErrorAlert}>
+            <Button onClick={addErrorAlert}>
               <AddIcon />
             </Button>
           </HStack>
           <HStack justifyContent="space-between" width="100%">
             <Text>Add Warning Alert</Text>
-            <Button variant="primary" color="white" onClick={addWarningAlert}>
+            <Button onClick={addWarningAlert}>
               <AddIcon />
             </Button>
           </HStack>
           <HStack justifyContent="space-between" width="100%">
             <Text>Add Success Alert</Text>
-            <Button variant="primary" color="white" onClick={addSuccessAlert}>
+            <Button onClick={addSuccessAlert}>
               <AddIcon />
             </Button>
           </HStack>
           <Divider borderWidth="2px" borderColor="black" borderRadius="full" />
           <HStack justifyContent="space-between" width="100%">
             <Text>Add One of Each Alert</Text>
-            <Button variant="primary" color="white" onClick={addOneOfEachAlert}>
+            <Button onClick={addOneOfEachAlert}>
               <AddIcon />
             </Button>
           </HStack>
@@ -215,7 +218,7 @@ export default function DevAlert() {
         <VStack width="100%">
           <HStack justifyContent="space-between" width="100%">
             <Text>Clear All Alerts</Text>
-            <Button variant="primary" color="white" onClick={clearAllAlerts}>
+            <Button onClick={clearAllAlerts}>
               <CloseIcon />
             </Button>
           </HStack>
@@ -226,7 +229,6 @@ export default function DevAlert() {
         boxShadow="md"
         borderRadius="0.5em"
         width="100%"
-        height="100%"
         padding="1em"
         justifyContent="space-between"
       >
@@ -235,8 +237,6 @@ export default function DevAlert() {
             <Text>Add Alerts w/ 4 sources</Text>
             <HStack>
               <Button
-                variant="primary"
-                color="white"
                 onClick={addAlertsWith4Sources}
               >
                 <AddIcon />
@@ -246,7 +246,7 @@ export default function DevAlert() {
           <Divider borderWidth="2px" borderColor="black" borderRadius="full" />
           <HStack justifyContent="space-between" width="100%">
             <Text>Add Timed Alerts</Text>
-            <Button variant="primary" color="white" onClick={addTimedAlerts}>
+            <Button onClick={addTimedAlerts}>
               <AddIcon />
             </Button>
           </HStack>
@@ -254,8 +254,6 @@ export default function DevAlert() {
           <HStack justifyContent="space-between" width="100%">
             <Text>Add Length Error Alert</Text>
             <Button
-              variant="primary"
-              color="white"
               onClick={addLengthErrorAlert}
             >
               <AddIcon />
@@ -288,15 +286,13 @@ export default function DevAlert() {
         <VStack width="100%">
           <HStack justifyContent="space-between" width="100%">
             <Text>Clear File Alerts</Text>
-            <Button variant="primary" color="white" onClick={clearFileAlerts}>
+            <Button onClick={clearFileAlerts}>
               <CloseIcon />
             </Button>
           </HStack>
           <HStack justifyContent="space-between" width="100%">
             <Text>Clear Database Alerts</Text>
             <Button
-              variant="primary"
-              color="white"
               onClick={clearDatabaseAlerts}
             >
               <CloseIcon />
@@ -304,20 +300,20 @@ export default function DevAlert() {
           </HStack>
           <HStack justifyContent="space-between" width="100%">
             <Text>Clear API Alerts</Text>
-            <Button variant="primary" color="white" onClick={clearApiAlerts}>
+            <Button onClick={clearApiAlerts}>
               <CloseIcon />
             </Button>
           </HStack>
           <HStack justifyContent="space-between" width="100%">
             <Text>Clear User Alerts</Text>
-            <Button variant="primary" color="white" onClick={clearUserAlerts}>
+            <Button onClick={clearUserAlerts}>
               <CloseIcon />
             </Button>
           </HStack>
           <Divider borderWidth="2px" borderColor="black" borderRadius="full" />
           <HStack justifyContent="space-between" width="100%">
             <Text>Clear All Alerts</Text>
-            <Button variant="primary" color="white" onClick={clearAllAlerts}>
+            <Button onClick={clearAllAlerts}>
               <CloseIcon />
             </Button>
           </HStack>
@@ -328,7 +324,6 @@ export default function DevAlert() {
         boxShadow="md"
         borderRadius="0.5em"
         width="100%"
-        height="100%"
         padding="1em"
         justifyContent="space-between"
       >
@@ -336,8 +331,6 @@ export default function DevAlert() {
           <HStack justifyContent="space-between" width="100%">
             <Text>Add Dont Show Again Alerts</Text>
             <Button
-              variant="primary"
-              color="white"
               onClick={addDontShowAgainAlert}
             >
               <AddIcon />
@@ -348,8 +341,6 @@ export default function DevAlert() {
           <HStack justifyContent="space-between" width="100%">
             <Text>Clear Don{"'"}t Show Again State</Text>
             <Button
-              variant="primary"
-              color="white"
               onClick={clearDontShowAgainState}
             >
               <CloseIcon />
