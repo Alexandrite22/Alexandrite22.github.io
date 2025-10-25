@@ -6,17 +6,14 @@ import {
 import staticBG from '../assets/staticBG.jpg';
 import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
-import { useResponsiveSizes, useScreenSize } from '../hooks/useScreenSize';
+import { useResponsiveSizes, useScreenSize, useDiagonalBreakpointValue } from '../hooks/useScreenSize';
 import Sidebar from './Sidebar';
 
 
 const SidebarLayout = () => {
     const { isLandscape } = useScreenSize();
     const { respXS, respSM } = useResponsiveSizes();
-    const bgOverlay = useColorModeValue(
-        'rgba(255, 255, 255, 0.4)',
-        'rgba(26, 32, 44, 0.4)'
-    );
+    const sidebarWidth = useDiagonalBreakpointValue({ base: "6rem", sm: "8rem", md: "10rem", lg: "12rem", xl: "14rem", '2xl': "18rem" });
 
     const mainBg = useColorModeValue(
         'rgba(255, 255, 255, 0.5)',
@@ -45,7 +42,7 @@ const SidebarLayout = () => {
             >
                 <Flex 
                     flexDirection="column" 
-                    width={isLandscape ? "14em" : "full"} 
+                    width={isLandscape ? sidebarWidth : "full"} 
                     height={isLandscape ? "full" : "auto"}
                     bg={mainBg}
                     p={respXS}
