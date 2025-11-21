@@ -5,7 +5,7 @@ import { useScreenSize, useDiagonalBreakpointValue, useResponsiveSizes } from '.
 const BioCard = () => {
   const { isLandscape } = useScreenSize();
   const { respSM, respLG, respMD } = useResponsiveSizes();
-  const pfpSize = useDiagonalBreakpointValue({ base: "100px", sm: "150px", md: "200px", lg: "250px", xl: "300px", '2xl': "350px" });
+  const pfpSize = useDiagonalBreakpointValue({ base: "75px", sm: "100px", md: "150px", lg: "200px", xl: "250px", '2xl': "300px" });
   return (
     <Flex 
         spacing={respSM} 
