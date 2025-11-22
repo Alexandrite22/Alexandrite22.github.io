@@ -5,7 +5,7 @@ function getScreenDiagonal(width, height) {
 }
 
 function isLandscape(width, height) {
-  return width > height;
+  return width > height * (4/5);
 }
 
 const breakpoints = {
