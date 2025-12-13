@@ -13,13 +13,15 @@ import Sidebar from './Sidebar';
 const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100dvh;
+  height: ${(props) => (props.isLandscape ? '100dvh' : 'auto')};
   width: 100vw;
   padding: ${(props) => props.p};
   gap: ${(props) => props.gap};
   background-image: url(${(props) => props.backgroundImage});
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 `;
 
 const MainContent = styled.div`
@@ -29,7 +31,7 @@ const MainContent = styled.div`
   gap: ${(props) => props.gap};
   flex: 1;
   min-height: 0;
-  overflow: ${(props) => (props.isLandscape ? 'hidden' : 'auto')};
+  overflow: ${(props) => (props.isLandscape ? 'hidden' : 'visible')};
 `;
 
 const SidebarContainer = styled.div`
@@ -82,6 +84,7 @@ const SidebarLayout = () => {
       p={respXS}
       gap={respXS}
       backgroundImage={staticBG}
+      isLandscape={isLandscape}
     >
       <MainContent
         isLandscape={isLandscape}
