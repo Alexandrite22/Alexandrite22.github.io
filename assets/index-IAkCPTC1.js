@@ -306,13 +306,15 @@ Please change the parent <Route path="${p}"> to <Route path="${p==="/"?"*":`${p}
 `,sc=[{to:"/",label:"Home"},{to:"/projects",label:"Projects"},{to:"/contact",label:"Contact"}],Qv=()=>{const{isLandscape:e}=Hn(),{respXS:t,respMD:n,respXL:r}=Un(),l=Td(),o=i=>{l(i.target.value)};return _.jsx(Av,{isLandscape:e,gap:t,children:_.jsxs(Uv,{id:"sidebar-card",p:t,borderRadius:t,isLandscape:e,gap:t,children:[_.jsx(Hv,{src:"/Logo.svg",alt:"Logo",boxSize:r}),e?_.jsx(Wv,{gap:t,children:sc.map(i=>_.jsx(Bv,{to:i.to,fontSize:n,children:i.label},i.to))}):_.jsx(Vv,{onChange:o,borderRadius:t,fontSize:n,children:sc.map(i=>_.jsx("option",{value:i.to,children:i.label},i.to))})]})})},Kv=D.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100dvh;
+  height: ${e=>e.isLandscape?"100dvh":"auto"};
   width: 100vw;
   padding: ${e=>e.p};
   gap: ${e=>e.gap};
   background-image: url(${e=>e.backgroundImage});
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 `,Xv=D.div`
   display: flex;
   flex-direction: ${e=>e.isLandscape?"row":"column"};
@@ -320,7 +322,7 @@ Please change the parent <Route path="${p}"> to <Route path="${p==="/"?"*":`${p}
   gap: ${e=>e.gap};
   flex: 1;
   min-height: 0;
-  overflow: ${e=>e.isLandscape?"hidden":"auto"};
+  overflow: ${e=>e.isLandscape?"hidden":"visible"};
 `,Yv=D.div`
   display: flex;
   flex-direction: column;
@@ -344,4 +346,4 @@ Please change the parent <Route path="${p}"> to <Route path="${p==="/"?"*":`${p}
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(10px);
   transition: background-color 0.3s ease;
-`,Jv=()=>{const{isLandscape:e}=Hn(),{respXS:t,respSM:n}=Un(),r=St({base:"6rem",sm:"8rem",md:"10rem",lg:"12rem",xl:"14rem","2xl":"18rem"}),{colorMode:l}=rp(),o=l==="light"?"rgba(255, 255, 255, 0.5)":"rgba(26, 32, 44, 0.5)";return _.jsxs(Kv,{p:t,gap:t,backgroundImage:Cv,children:[_.jsxs(Xv,{isLandscape:e,borderRadius:t,gap:t,children:[_.jsx(Yv,{isLandscape:e,width:r,bg:o,p:t,borderRadius:t,children:_.jsx(Qv,{})}),_.jsx(Gv,{p:t,bg:o,borderRadius:n,children:_.jsx(_0,{})})]}),_.jsx(Dv,{})]})};function Zv(){return _.jsx(L0,{children:_.jsx(fu,{path:"/",element:_.jsx(Jv,{}),children:_.jsx(fu,{index:!0,element:_.jsx(kv,{})})})})}vi.createRoot(document.getElementById("root")).render(_.jsx(st.StrictMode,{children:_.jsx(Z0,{children:_.jsx(Ev,{children:_.jsx(Zv,{})})})}));
+`,Jv=()=>{const{isLandscape:e}=Hn(),{respXS:t,respSM:n}=Un(),r=St({base:"6rem",sm:"8rem",md:"10rem",lg:"12rem",xl:"14rem","2xl":"18rem"}),{colorMode:l}=rp(),o=l==="light"?"rgba(255, 255, 255, 0.5)":"rgba(26, 32, 44, 0.5)";return _.jsxs(Kv,{p:t,gap:t,backgroundImage:Cv,isLandscape:e,children:[_.jsxs(Xv,{isLandscape:e,borderRadius:t,gap:t,children:[_.jsx(Yv,{isLandscape:e,width:r,bg:o,p:t,borderRadius:t,children:_.jsx(Qv,{})}),_.jsx(Gv,{p:t,bg:o,borderRadius:n,children:_.jsx(_0,{})})]}),_.jsx(Dv,{})]})};function Zv(){return _.jsx(L0,{children:_.jsx(fu,{path:"/",element:_.jsx(Jv,{}),children:_.jsx(fu,{index:!0,element:_.jsx(kv,{})})})})}vi.createRoot(document.getElementById("root")).render(_.jsx(st.StrictMode,{children:_.jsx(Z0,{children:_.jsx(Ev,{children:_.jsx(Zv,{})})})}));
