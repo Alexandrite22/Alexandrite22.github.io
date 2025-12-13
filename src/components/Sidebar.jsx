@@ -101,7 +101,8 @@ const Sidebar = () => {
     <FlexContainer isLandscape={isLandscape} gap={respXS}>
       <Card id="sidebar-card" p={respXS} borderRadius={respXS} isLandscape={isLandscape} gap={respXS} justifyContent={isLandscape ? 'flex-start' : 'space-between'} alignItems={isLandscape ? 'flex-start' : 'center'}>
         <StyledImage src={'/Logo.svg'} alt="Logo" boxSize={respXL} />
-        {isLandscape ? (
+{/* TODO: Add back in once I make a a ProjectsCard component, reference linear for specifics    
+    {isLandscape ? (
             <NavContainer gap={respXS}>
                 {links.map(link => (
                     <StyledLink key={link.to} to={link.to} fontSize={respMD}>
@@ -117,7 +118,7 @@ const Sidebar = () => {
                     </option>
                 ))}
             </StyledSelect>
-        )}
+        )} */}
       </Card>
     </FlexContainer>
   );
