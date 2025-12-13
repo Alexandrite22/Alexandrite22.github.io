@@ -248,7 +248,7 @@ Please change the parent <Route path="${p}"> to <Route path="${p==="/"?"*":`${p}
   transition: background-color 0.3s ease;
   display: flex;
   flex-direction: ${e=>e.isLandscape?"column":"row"};
-  align-items: center;
+  align-items: ${e=>e.alignItems};
   gap: ${e=>e.gap};
   ${e=>!e.isLandscape&&`
     width: 100%;
@@ -303,7 +303,7 @@ Please change the parent <Route path="${p}"> to <Route path="${p==="/"?"*":`${p}
         border-color: ${e=>e.theme.colors.brand.primary};
         box-shadow: 0 0 0 2px ${e=>e.theme.colors.brand.primary}33; /* Add a subtle glow */
     }
-`,sc=[{to:"/",label:"Home"},{to:"/projects",label:"Projects"},{to:"/contact",label:"Contact"}],Qv=()=>{const{isLandscape:e}=Hn(),{respXS:t,respMD:n,respXL:r}=Un(),l=Td(),o=i=>{l(i.target.value)};return _.jsx(Av,{isLandscape:e,gap:t,children:_.jsxs(Uv,{id:"sidebar-card",p:t,borderRadius:t,isLandscape:e,gap:t,children:[_.jsx(Hv,{src:"/Logo.svg",alt:"Logo",boxSize:r}),e?_.jsx(Wv,{gap:t,children:sc.map(i=>_.jsx(Bv,{to:i.to,fontSize:n,children:i.label},i.to))}):_.jsx(Vv,{onChange:o,borderRadius:t,fontSize:n,children:sc.map(i=>_.jsx("option",{value:i.to,children:i.label},i.to))})]})})},Kv=D.div`
+`,sc=[{to:"/",label:"Home"},{to:"/projects",label:"Projects"},{to:"/contact",label:"Contact"}],Qv=()=>{const{isLandscape:e}=Hn(),{respXS:t,respMD:n,respXL:r}=Un(),l=Td(),o=i=>{l(i.target.value)};return _.jsx(Av,{isLandscape:e,gap:t,children:_.jsxs(Uv,{id:"sidebar-card",p:t,borderRadius:t,isLandscape:e,gap:t,justifyContent:e?"flex-start":"space-between",alignItems:e?"flex-start":"center",children:[_.jsx(Hv,{src:"/Logo.svg",alt:"Logo",boxSize:r}),e?_.jsx(Wv,{gap:t,children:sc.map(i=>_.jsx(Bv,{to:i.to,fontSize:n,children:i.label},i.to))}):_.jsx(Vv,{onChange:o,borderRadius:t,fontSize:n,children:sc.map(i=>_.jsx("option",{value:i.to,children:i.label},i.to))})]})})},Kv=D.div`
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
