@@ -17,7 +17,7 @@ const Card = styled.div`
   transition: background-color 0.3s ease;
   display: flex;
   flex-direction: ${(props) => (props.isLandscape ? 'column' : 'row')};
-  align-items: center;
+  align-items: ${(props) => props.alignItems};
   gap: ${(props) => props.gap};
   ${(props) => !props.isLandscape && `
     width: 100%;
@@ -99,7 +99,7 @@ const Sidebar = () => {
 
   return (
     <FlexContainer isLandscape={isLandscape} gap={respXS}>
-      <Card id="sidebar-card" p={respXS} borderRadius={respXS} isLandscape={isLandscape} gap={respXS}>
+      <Card id="sidebar-card" p={respXS} borderRadius={respXS} isLandscape={isLandscape} gap={respXS} justifyContent={isLandscape ? 'flex-start' : 'space-between'} alignItems={isLandscape ? 'flex-start' : 'center'}>
         <StyledImage src={'/Logo.svg'} alt="Logo" boxSize={respXL} />
         {isLandscape ? (
             <NavContainer gap={respXS}>
