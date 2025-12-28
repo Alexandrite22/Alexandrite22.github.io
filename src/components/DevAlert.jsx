@@ -25,7 +25,7 @@ const GridContainer = styled.div`
 `
 
 const Card = styled.div`
-  background: ${props => props.theme.colors.ui.card.light};
+  background-color: ${(props) => props.theme.colors['background-card']};
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border-radius: ${props => props.borderRadius};
   height: 100%;
@@ -247,10 +247,10 @@ export default function DevAlert() {
   }
 
   return (
-    <GridContainer gap={respSM}>
+    <GridContainer gap={respXS} borderRadius={respXS}>
       {/* Column 1 */}
-      <Card padding={respSM} borderRadius={respXS}>
-        <FlexColumn gap={respSM}>
+      <Card padding={respXS} borderRadius={`0rem ${respXS} ${respXS} ${respXS}`}>
+        <FlexColumn gap={respXS}>
           <FlexRow>
             <Text>Add Info Alert</Text>
             <StyledButton onClick={addInfoAlert} {...buttonProps}>
@@ -294,8 +294,8 @@ export default function DevAlert() {
       </Card>
 
       {/* Column 2 */}
-      <Card padding={respSM} borderRadius={respXS}>
-        <FlexColumn gap={respSM}>
+      <Card padding={respXS} borderRadius={respXS}>
+        <FlexColumn gap={respXS}>
           <FlexRow>
             <Text>Add Alerts w/ 4 sources</Text>
             <StyledButton onClick={addAlertsWith4Sources} {...buttonProps}>
@@ -323,7 +323,7 @@ export default function DevAlert() {
             placeholder="Alert logs or content could go here..."
           />
         </FlexColumn>
-        <FlexColumn gap={respSM}>
+        <FlexColumn gap={respXS}>
           <FlexRow>
             <Text>Clear File Alerts</Text>
             <StyledButton onClick={clearFileAlerts} {...buttonProps}>
@@ -359,7 +359,7 @@ export default function DevAlert() {
       </Card>
 
       {/* Column 3 */}
-      <Card padding={respSM} borderRadius={respXS}>
+      <Card padding={respXS} borderRadius={respXS}>
         <FlexColumn gap={respSM}>
           <FlexRow>
             <Text>Add Dont Show Again Alerts</Text>

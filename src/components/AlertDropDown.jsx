@@ -207,7 +207,7 @@ const AlertDropDown = () => {
   const [copyLabel, setCopyLabel] = React.useState('Copy to clipboard');
   const [isChecked, setIsChecked] = React.useState(false);
   
-  const { respMD } = useResponsiveSizes();
+  const { respMD, respSM } = useResponsiveSizes();
 
   React.useEffect(() => {
     if (currentIndex >= alerts.length && alerts.length > 0) {
@@ -294,7 +294,7 @@ const AlertDropDown = () => {
                 <FaCopy />
               </CopyButton>
             )}
-            <Text fontSize={respMD} color="black">
+            <Text fontSize={respSM} color="black">
               {currentAlert.content}
             </Text>
           </ScrollArea>

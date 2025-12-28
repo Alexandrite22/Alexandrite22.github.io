@@ -13,16 +13,15 @@ const FlexColumn = styled.div`
 `;
 
 const ContentCard = styled.div`
-  background-color: ${(props) => props.theme.colors['background-card']};
-  padding: ${(props) => props.p};
+  background-color: transparent;
+  padding: 0;
   border-radius: ${(props) => props.borderRadius};
   border-top-left-radius: 0;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: none;
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  border: 1px solid ${(props) => props.theme.colors['border-primary']};
-  border-top: none; /* Connects with the tab container border */
+  border: none;
 `;
 
 const ToolsView = () => {
@@ -32,7 +31,7 @@ const ToolsView = () => {
   return (
     <FlexColumn gap="0" isLandscape={isLandscape}>
       <ToolTab />
-      <ContentCard p={respSM} borderRadius={respXS}>
+      <ContentCard p={respXS} borderRadius={respXS}>
         <Outlet />
       </ContentCard>
     </FlexColumn>

@@ -39,10 +39,10 @@ const HStack = styled.div`
 
 const AboutCard = () => {
   const { isLandscape } = useScreenSize();
-  const { respSM, respLG, respMD } = useResponsiveSizes();
+  const { respXS, respLG, respMD } = useResponsiveSizes();
 
   return (
-    <StyledFlex gap={respSM} p={respSM} borderRadius={respSM}>
+    <StyledFlex gap={respXS} p={respXS} borderRadius={respXS}>
         <Heading fontSize={respLG}>
             What's This?
         </Heading>

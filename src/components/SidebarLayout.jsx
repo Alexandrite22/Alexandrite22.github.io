@@ -104,7 +104,7 @@ const SidebarLayout = () => {
         <OutletContainer
           p={respXS}
           bg={mainBg}
-          borderRadius={respSM}
+          borderRadius={respXS}
         >
           <Outlet />
         </OutletContainer>

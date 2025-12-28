@@ -42,8 +42,8 @@ export function useDiagonalBreakpointValue(values) {
 }
 
 export function useResponsiveSizes() {
-  const respXS = useDiagonalBreakpointValue({ base: '0.125rem', sm: '0.25rem', md: '0.375rem', lg: '0.5rem', xl: '0.625rem', '2xl': '0.75rem' });
-  const respSM = useDiagonalBreakpointValue({ base: '0.25rem', sm: '0.325rem', md: '0.5rem', lg: '0.75rem', xl: '1rem', '2xl': '1.25rem' });
+  const respXS = useDiagonalBreakpointValue({ base: '0.4rem', sm: '0.5rem', md: '0.6rem', lg: '0.7rem', xl: '0.8rem', '2xl': '0.9rem' });
+  const respSM = useDiagonalBreakpointValue({ base: '0.6rem', sm: '0.75rem', md: '0.9rem', lg: '1rem', xl: '1.1rem', '2xl': '1.25rem' });
   const respMD = useDiagonalBreakpointValue({ base: '0.75rem', sm: '1rem', md: '1.125rem', lg: '1.25rem', xl: '1.325rem', '2xl': '1.5rem' });
   const respLG = useDiagonalBreakpointValue({ base: '1rem', sm: '1.25rem', md: '1.5rem', lg: '1.75rem', xl: '2rem', '2xl': '2.5rem' });
   const respXL = useDiagonalBreakpointValue({ base: '1.25rem', sm: '1.5rem', md: '1.75rem', lg: '2rem', xl: '2.5rem', '2xl': '3rem' });

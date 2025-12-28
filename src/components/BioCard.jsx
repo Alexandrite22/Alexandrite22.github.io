@@ -46,7 +46,7 @@ const HStack = styled.div`
 
 const BioCard = () => {
   const { isLandscape } = useScreenSize();
-  const { respSM, respLG, respMD } = useResponsiveSizes();
+  const { respXS, respLG, respMD } = useResponsiveSizes();
   const pfpSize = useDiagonalBreakpointValue({
     base: '80px',
     sm: '125px',
@@ -57,11 +57,11 @@ const BioCard = () => {
   });
 
   return (
-    <StyledFlex gap={respSM} p={respSM} borderRadius={respSM}>
+    <StyledFlex gap={respXS} p={respXS} borderRadius={respXS}>
       {isLandscape ? (
-        <HStack gap={respSM}>
+        <HStack gap={respXS}>
           <StyledImage
-            borderRadius={respSM}
+            borderRadius={respXS}
             boxSize={pfpSize}
             src={pfp}
             alt="Profile Picture"
@@ -94,14 +94,14 @@ const BioCard = () => {
         </HStack>
       ) : (
         <VStack>
-            <HStack gap={respSM}>
+            <HStack gap={respXS}>
                 <StyledImage
-                borderRadius={respSM}
+                borderRadius={respXS}
                 boxSize={pfpSize}
                 src={pfp}
                 alt="Profile Picture"
                 />
-                <VStack gap={respSM}>
+                <VStack gap={respXS}>
                     <Heading fontSize={respLG}>
                         Alex Hewson
                     </Heading>
@@ -111,7 +111,7 @@ const BioCard = () => {
                 </VStack>
             </HStack>
             <VStack>
-                <Text id="description" mt={respSM} fontSize={respMD}>
+                <Text id="description" mt={respXS} fontSize={respMD}>
                     Located in Denver, Colorado, USA.
                     <br />
                     Email:{' '}

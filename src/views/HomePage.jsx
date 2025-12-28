@@ -24,9 +24,9 @@ const StyledFlex = styled.div`
 
 const HomePage = () => {
   const { isLandscape } = useScreenSize();
-  const { respSM } = useResponsiveSizes();
+  const { respXS } = useResponsiveSizes();
   return (
-    <FlexColumn gap={respSM} isLandscape={isLandscape}>
+    <FlexColumn gap={respXS} isLandscape={isLandscape}>
       <BioCard />
       <AboutCard />
     </FlexColumn>
