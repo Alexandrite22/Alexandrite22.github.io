@@ -84,8 +84,8 @@ const StyledSelect = styled.select`
 
 const links = [
     { to: '/', label: 'Home' },
+    { to: '/tools', label: 'Tools' },
     { to: '/projects', label: 'Projects' },
-    { to: '/contact', label: 'Contact' },
 ];
 
 const Sidebar = () => {
@@ -100,8 +100,7 @@ const Sidebar = () => {
   return (
     <FlexContainer isLandscape={isLandscape} gap={respXS}>
       <Card id="sidebar-card" p={respXS} borderRadius={respXS} isLandscape={isLandscape} gap={respXS} justifyContent={isLandscape ? 'flex-start' : 'space-between'} alignItems={isLandscape ? 'flex-start' : 'center'}>
-        <StyledImage src={'/Logo.svg'} alt="Logo" boxSize={respXL} />
-{/* TODO: Add back in once I make a a ProjectsCard component, reference linear for specifics    
+        <StyledImage src={'/Logo.svg'} alt="Logo" boxSize={respXL} /> 
     {isLandscape ? (
             <NavContainer gap={respXS}>
                 {links.map(link => (
@@ -116,9 +115,9 @@ const Sidebar = () => {
                     <option key={link.to} value={link.to}>
                         {link.label}
                     </option>
-                ))}
+                ))}=
             </StyledSelect>
-        )} */}
+        )}
       </Card>
     </FlexContainer>
   );
