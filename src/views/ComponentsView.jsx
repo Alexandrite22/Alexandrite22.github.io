@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { useScreenSize, useResponsiveSizes } from '../hooks/useScreenSize';
+import { useResponsiveSizes } from '../hooks/useScreenSize';
 import { Outlet } from 'react-router-dom';
 import ComponentsTab from '../components/ComponentsTab';
 
@@ -9,7 +9,7 @@ const FlexColumn = styled.div`
   flex: 1;
   min-height: 0;
   gap: ${(props) => props.gap};
-  height: ${(props) => (props.isLandscape ? '100%' : 'auto')};
+  height: 100%;
 `;
 
 const ContentCard = styled.div`
@@ -25,11 +25,10 @@ const ContentCard = styled.div`
 `;
 
 const ComponentsView = () => {
-  const { isLandscape } = useScreenSize();
-  const { respXS, respSM } = useResponsiveSizes();
+  const { respXS, } = useResponsiveSizes();
   
   return (
-    <FlexColumn gap="0" isLandscape={isLandscape}>
+    <FlexColumn gap="0">
       <ComponentsTab />
       <ContentCard p={respXS} borderRadius={respXS}>
         <Outlet />

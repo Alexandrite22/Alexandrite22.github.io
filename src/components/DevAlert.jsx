@@ -16,7 +16,7 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: ${props => props.gap};
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   
   @media (min-width: 1024px) {

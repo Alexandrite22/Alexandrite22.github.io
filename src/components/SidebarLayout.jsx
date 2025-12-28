@@ -14,8 +14,7 @@ import AlertDropDown from './AlertDropDown';
 const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
-  height: ${(props) => (props.isLandscape ? '100dvh' : 'auto')};
+  height: 100dvh;
   width: 100vw;
   padding: ${(props) => props.p};
   gap: ${(props) => props.gap};
@@ -32,7 +31,7 @@ const MainContent = styled.div`
   gap: ${(props) => props.gap};
   flex: 1;
   min-height: 0;
-  overflow: ${(props) => (props.isLandscape ? 'hidden' : 'visible')};
+  overflow: hidden;
 `;
 
 const SidebarContainer = styled.div`
