@@ -25,8 +25,7 @@ const AlertContainer = styled.div`
   width: 100vw;
   max-height: calc(25vh + 1em);
   background-color: ${(props) => props.bgColor};
-  border: 1px solid ${(props) => props.borderColor};
-  border-radius: 0 0 0.5em 0.5em;
+  border-radius: 0 0 ${props => props.borderRadius} ${props => props.borderRadius};
   padding: 0.5em;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   color: black;
@@ -53,19 +52,15 @@ const ContentWrapper = styled.div`
 
 const HeaderText = styled(Text)`
   font-weight: bold;
-  margin: 0 0.5em 0.5em 0;
   color: black;
-  
-  @media (min-width: 880px) {
-    margin: 0 0.75em 0.75em 0;
-  }
+  margin: 0;
 `;
 
 const ScrollArea = styled.div`
   overflow-y: auto;
   max-height: calc(20vh - 4em);
   border-radius: 0.5em;
-  background-color: ${(props) => (props.isError ? '#EF9A9A' : 'transparent')};
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 0.25em 0.5em;
   position: relative;
   
@@ -79,6 +74,7 @@ const ScrollArea = styled.div`
     background: #E57373;
     border-radius: 24px;
   }
+  overflow-x: hidden;
 `;
 
 const IconButton = styled.button`
@@ -111,15 +107,13 @@ const CloseButton = styled(IconButton)`
 `;
 
 const CopyButton = styled(IconButton)`
-  position: absolute;
-  right: 0.125em;
-  top: 3em; 
+  margin-left: 0.5em;
   z-index: 1;
 `;
 
 const NavContainer = styled.div`
   margin-top: 0.5em;
-  min-height: 2em;
+  min-height: 0.75em;
   position: relative;
   display: flex;
   justify-content: center;
@@ -153,11 +147,13 @@ const ClearAllButton = styled.button`
 const DontShowCheck = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.25em;
   position: absolute;
   right: 0.75em;
   bottom: 0.375em;
   font-size: 0.75rem;
+
 `;
 
 const StyledInput = styled.input`
@@ -207,7 +203,7 @@ const AlertDropDown = () => {
   const [copyLabel, setCopyLabel] = React.useState('Copy to clipboard');
   const [isChecked, setIsChecked] = React.useState(false);
   
-  const { respMD, respSM } = useResponsiveSizes();
+  const { respMD, respSM, respXS } = useResponsiveSizes();
 
   React.useEffect(() => {
     if (currentIndex >= alerts.length && alerts.length > 0) {
@@ -269,7 +265,7 @@ const AlertDropDown = () => {
   const { bg, border, iconColor, Icon } = status;
 
   return (
-    <AlertContainer bgColor={bg} borderColor={border}>
+    <AlertContainer bgColor={bg} borderRadius={respXS}>
       <AlertIconWrapper color={iconColor}>
         <Icon />
       </AlertIconWrapper>
@@ -280,20 +276,22 @@ const AlertDropDown = () => {
 
       <ContentWrapper>
         <div style={{ position: 'relative' }}>
-          <HeaderText fontSize={respMD}>
-            {currentAlert.source}
-          </HeaderText>
-          
-          <ScrollArea isError={currentAlert.type === 'error'}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5em' }}> 
+            <HeaderText fontSize={respMD}>
+              {currentAlert.source}
+            </HeaderText>
             {currentAlert.type === 'error' && (
-              <CopyButton
-                onClick={handleCopy}
-                aria-label={copyLabel}
-                title={copyLabel}
-              >
-                <FaCopy />
-              </CopyButton>
-            )}
+                <CopyButton
+                  onClick={handleCopy}
+                  aria-label={copyLabel}
+                  title={copyLabel}
+                >
+                  <FaCopy />
+                </CopyButton>
+              )}
+          </div>
+          <ScrollArea>
+
             <Text fontSize={respSM} color="black">
               {currentAlert.content}
             </Text>
@@ -314,10 +312,10 @@ const AlertDropDown = () => {
       </ContentWrapper>
 
       <ClearAllButton onClick={clearAlerts}>
-        clear all
+        <Text fontSize={respXS}>clear all</Text>
       </ClearAllButton>
 
-      <DontShowCheck>
+      <DontShowCheck size={respXS}>
         <StyledInput
           type="checkbox"
           checked={isChecked}
@@ -326,7 +324,7 @@ const AlertDropDown = () => {
           id="dont-show-checkbox"
         />
         <label htmlFor="dont-show-checkbox" style={{ cursor: 'pointer', color: 'black' }}>
-            don't show again
+            <Text fontSize={respXS}>don't show again</Text>
         </label>
       </DontShowCheck>
     </AlertContainer>
