@@ -28,9 +28,9 @@ const ComponentsView = () => {
   const { respXS, } = useResponsiveSizes();
   
   return (
-    <FlexColumn gap="0">
-      <ComponentsTab />
-      <ContentCard p={respXS} borderRadius={respXS}>
+    <FlexColumn gap="0" overflow="auto" id="components-view">
+      <ComponentsTab id="components-tab"/>
+      <ContentCard p={respXS} borderRadius={respXS} id="components-container">
         <Outlet />
       </ContentCard>
     </FlexColumn>

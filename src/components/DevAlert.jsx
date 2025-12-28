@@ -14,14 +14,10 @@ import { Text } from "./ui/Typography"
 // Styled Components
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: ${(props) => (props.isLandscape ? 'repeat(3, 1fr)' : '1fr')};
   gap: ${props => props.gap};
   min-height: 100%;
   width: 100%;
-  
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
 `
 
 const Card = styled.div`
@@ -109,7 +105,7 @@ const StyledTextarea = styled.textarea`
 
 export default function DevAlert() {
   const { respSM, respMD, respXS } = useResponsiveSizes()
-  
+  const { isLandscape } = useScreenSize()
   // Handlers
   const addInfoAlert = () => {
     addAlert(AlertType.INFO, "INFO", "This is an info alert")
@@ -247,7 +243,7 @@ export default function DevAlert() {
   }
 
   return (
-    <GridContainer gap={respXS} borderRadius={respXS}>
+    <GridContainer gap={respXS} borderRadius={respXS} isLandscape={isLandscape} overflow={isLandscape ? 'visible' : 'hidden'}>
       {/* Column 1 */}
       <Card padding={respXS} borderRadius={`0rem ${respXS} ${respXS} ${respXS}`}>
         <FlexColumn gap={respXS}>
@@ -275,7 +271,7 @@ export default function DevAlert() {
               <FaPlus />
             </StyledButton>
           </FlexRow>
-          <StyledDivider margin={respXS} />
+          <StyledDivider />
           <FlexRow>
             <Text>Add One of Each Alert</Text>
             <StyledButton onClick={addOneOfEachAlert} {...buttonProps}>
@@ -283,6 +279,9 @@ export default function DevAlert() {
             </StyledButton>
           </FlexRow>
         </FlexColumn>
+        { !isLandscape &&  (
+            <StyledDivider margin={respXS} />
+        )}
         <FlexColumn>
           <FlexRow>
             <Text>Clear All Alerts</Text>
@@ -302,27 +301,29 @@ export default function DevAlert() {
               <FaPlus />
             </StyledButton>
           </FlexRow>
-          <StyledDivider margin={respXS} />
+          <StyledDivider />
           <FlexRow>
             <Text>Add Timed Alerts</Text>
             <StyledButton onClick={addTimedAlerts} {...buttonProps}>
               <FaPlus />
             </StyledButton>
           </FlexRow>
-          <StyledDivider margin={respXS} />
+          <StyledDivider />
           <FlexRow>
             <Text>Add Length Error Alert</Text>
             <StyledButton onClick={addLengthErrorAlert} {...buttonProps}>
               <FaPlus />
             </StyledButton>
           </FlexRow>
-          <StyledTextarea
-            padding={respXS}
-            borderRadius={respXS}
-            readOnly
-            placeholder="Alert logs or content could go here..."
-          />
         </FlexColumn>
+        <StyledDivider margin={respXS} />
+        <StyledTextarea
+          padding={respXS}
+          borderRadius={respXS}
+          readOnly
+          placeholder="Alert logs or content could go here..."
+        />
+        <StyledDivider margin={respXS} />
         <FlexColumn gap={respXS}>
           <FlexRow>
             <Text>Clear File Alerts</Text>
@@ -348,7 +349,7 @@ export default function DevAlert() {
               <FaTimes />
             </StyledButton>
           </FlexRow>
-          <StyledDivider margin={respXS} />
+          <StyledDivider />
           <FlexRow>
             <Text>Clear All Alerts</Text>
             <StyledButton onClick={clearAllAlerts} {...buttonProps}>
@@ -360,7 +361,7 @@ export default function DevAlert() {
 
       {/* Column 3 */}
       <Card padding={respXS} borderRadius={respXS}>
-        <FlexColumn gap={respSM}>
+        <FlexColumn gap={respXS}>
           <FlexRow>
             <Text>Add Dont Show Again Alerts</Text>
             <StyledButton onClick={addDontShowAgainAlert} {...buttonProps}>
@@ -368,7 +369,10 @@ export default function DevAlert() {
             </StyledButton>
           </FlexRow>
         </FlexColumn>
-        <FlexColumn gap={respSM}>
+        { !isLandscape && (
+            <StyledDivider margin={respXS} />
+        )}
+        <FlexColumn gap={respXS}>
           <FlexRow>
             <Text>Clear Don't Show Again State</Text>
             <StyledButton onClick={clearDontShowAgainState} {...buttonProps}>

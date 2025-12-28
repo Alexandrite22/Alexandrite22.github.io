@@ -14,6 +14,7 @@ import AlertDropDown from './AlertDropDown';
 const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 100dvh;
   height: 100dvh;
   width: 100vw;
   padding: ${(props) => props.p};
@@ -52,6 +53,8 @@ const OutletContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-height: 0;
+  overflow: hidden;
   padding: ${(props) => props.p};
   background-color: ${(props) => props.bg};
   border-radius: ${(props) => props.borderRadius};
@@ -115,4 +118,3 @@ const SidebarLayout = () => {
 };
 
 export default SidebarLayout;
-

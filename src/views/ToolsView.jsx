@@ -26,10 +26,10 @@ const ContentCard = styled.div`
 
 const ToolsView = () => {
   const { isLandscape } = useScreenSize();
-  const { respXS, respSM } = useResponsiveSizes();
+  const { respXS } = useResponsiveSizes();
   
   return (
-    <FlexColumn gap="0" isLandscape={isLandscape}>
+    <FlexColumn gap="0" isLandscape={isLandscape} id="tools-view">
       <ToolTab />
       <ContentCard p={respXS} borderRadius={respXS}>
         <Outlet />
