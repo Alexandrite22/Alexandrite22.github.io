@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { useScreenSize, useResponsiveSizes } from '../hooks/useScreenSize';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useNavigate, useLocation } from 'react-router-dom';
 
 const FlexContainer = styled.div`
   display: flex;
@@ -86,17 +86,24 @@ const links = [
     { to: '/', label: 'Home' },
     { to: '/tools', label: 'Tools' },
     { to: '/components', label: 'Components' },
-    { to: '/projects', label: 'Projects' },
 ];
 
 const Sidebar = () => {
   const { isLandscape } = useScreenSize();
   const { respXS, respMD, respXL } = useResponsiveSizes();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleNavigation = (event) => {
     navigate(event.target.value);
   };
+  
+  const currentPath = location.pathname;
+  // If we are on a sub-route (e.g. /components/placeholder), we might want to select the parent
+  // This simple check looks for exact match or startsWith for better UX on sub-routes
+  const activeLink = links.find(link => 
+    link.to === '/' ? currentPath === '/' : currentPath.startsWith(link.to)
+  ) || links[0];
 
   return (
     <FlexContainer isLandscape={isLandscape} gap={respXS}>
@@ -111,12 +118,17 @@ const Sidebar = () => {
                 ))}
             </NavContainer>
         ) : (
-            <StyledSelect onChange={handleNavigation} borderRadius={respXS} fontSize={respMD}>
+            <StyledSelect 
+              onChange={handleNavigation} 
+              borderRadius={respXS} 
+              fontSize={respMD}
+              value={activeLink.to}
+            >
                 {links.map(link => (
                     <option key={link.to} value={link.to}>
                         {link.label}
                     </option>
-                ))}=
+                ))}
             </StyledSelect>
         )}
       </Card>
