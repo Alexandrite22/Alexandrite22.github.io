@@ -3,7 +3,9 @@ import HomePage from './views/HomePage';
 import SidebarLayout from './components/SidebarLayout';
 import ToolsView from './views/ToolsView';
 import FractalTool from './components/FractalTool';
-import PlaceholderTool from './components/PlaceholderTool';
+import Placeholder from './components/Placeholder';
+import ComponentsView from './views/ComponentsView';
+import DevAlert from './components/DevAlert';
 
 function App() {
   return (
@@ -11,9 +13,15 @@ function App() {
       <Route path="/" element={<SidebarLayout />}>
         <Route index element={<HomePage />} />
         <Route path="/tools" element={<ToolsView />}>
-          <Route index element={<Navigate to="fractal" replace />} />
-          <Route path="fractal" element={<FractalTool />} />
-          <Route path="placeholder" element={<PlaceholderTool />} />
+          <Route index element={<FractalTool />} />
+          <Route path="fractal" element={<Navigate to="/tools" replace />} />
+          <Route path="placeholder" element={<Placeholder />} />
+        </Route>
+        <Route path="/components" element={<ComponentsView />}>
+          <Route index element={<DevAlert />} />
+          <Route path="alerts" element={<Navigate to="/components" replace />} />
+          <Route path="alert-dropdown" element={<Navigate to="/components" replace />} />
+          <Route path="placeholder" element={<Placeholder />} />
         </Route>
       </Route>
     </Routes>

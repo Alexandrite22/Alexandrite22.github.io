@@ -2,26 +2,25 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Heading, Text } from './ui/Typography';
 import { useResponsiveSizes } from '../hooks/useScreenSize';
-import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   padding: 1rem;
   color: ${(props) => props.theme.colors['text-primary']};
 `;
 
-const FractalTool = () => {
+const Placeholder = () => {
   const { respLG, respMD } = useResponsiveSizes();
   return (
     <Container>
       <Heading fontSize={respLG}>
-        Fractal Tool
+        Placeholder
       </Heading>
       <Text fontSize={respMD}>
-        This tool is meant to be used with <Link href="https://www.mandelbulb.com/category/3d-fractal-rendering-software/mandelbulber/">Mandelbulber</Link> to create rip certain parameters from a fractals flight animation.
+        Placeholder I used to make sure the tabs worked
       </Text>
     </Container>
   );
 };
 
-export default FractalTool;
+export default Placeholder;
 

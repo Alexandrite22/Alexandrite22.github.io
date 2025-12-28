@@ -85,6 +85,7 @@ const StyledSelect = styled.select`
 const links = [
     { to: '/', label: 'Home' },
     { to: '/tools', label: 'Tools' },
+    { to: '/components', label: 'Components' },
     { to: '/projects', label: 'Projects' },
 ];
 

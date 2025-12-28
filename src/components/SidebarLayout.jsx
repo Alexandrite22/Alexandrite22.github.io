@@ -9,6 +9,7 @@ import {
   useDiagonalBreakpointValue,
 } from '../hooks/useScreenSize';
 import Sidebar from './Sidebar';
+import AlertDropDown from './AlertDropDown';
 
 const LayoutContainer = styled.div`
   display: flex;
@@ -109,6 +110,7 @@ const SidebarLayout = () => {
         </OutletContainer>
       </MainContent>
       <Footer />
+      <AlertDropDown />
     </LayoutContainer>
   );
 };

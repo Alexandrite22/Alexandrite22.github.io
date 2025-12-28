@@ -10,8 +10,8 @@ const TabContainer = styled.div`
 
 // Filter out custom props so they don't get passed to the DOM
 const StyledTab = styled(NavLink, {
-  shouldForwardProp: (prop) => !['borderRadius', 'padding', 'fontSize'].includes(prop)
-})`
+    shouldForwardProp: (prop) => !['borderRadius', 'padding', 'fontSize'].includes(prop)
+  })`
   padding: ${(props) => props.padding};
   color: ${(props) => props.theme.colors['text-secondary']};
   text-decoration: none;
@@ -44,7 +44,7 @@ const StyledTab = styled(NavLink, {
   }
 `;
 
-const ToolTab = () => {
+const ComponentsTab = () => {
   const { respXS, respSM, respMD } = useResponsiveSizes();
 
   return (
@@ -56,7 +56,7 @@ const ToolTab = () => {
         padding={`${respXS} ${respSM}`}
         fontSize={respMD}
       >
-        Fractal
+        Alerts
       </StyledTab>
       <StyledTab 
         to="placeholder" 
@@ -70,5 +70,5 @@ const ToolTab = () => {
   );
 };
 
-export default ToolTab;
+export default ComponentsTab;
 
