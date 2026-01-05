@@ -37,6 +37,25 @@ export const theme = {
       },
     },
   },
+  sizes: {
+    typography: {
+      header: { xl: 80, lg: 64, md: 48, sm: 32 },
+      subHeader: { xl: 48, lg: 40, md: 32, sm: 20 },
+      title: { xl: 24, lg: 22, md: 20, sm: 16 },
+      text: { xl: 18, lg: 17, md: 16, sm: 12 },
+      subText: { xl: 14, lg: 13, md: 12, sm: 10 },
+    },
+    borderRadius: {
+      large: { xl: 30, lg: 28, md: 24, sm: 12 },
+      standard: { xl: 20, lg: 18, md: 16, sm: 8 },
+      small: { xl: 10, lg: 9, md: 8, sm: 4 },
+    },
+    padding: {
+      large: { xl: 20, lg: 18, md: 16, sm: 8 },
+      standard: { xl: 15, lg: 13.5, md: 12, sm: 7.5 },
+      small: { xl: 10, lg: 9, md: 8, sm: 5 },
+    },
+  },
   semanticColors: (mode) => ({
     'background-body':
       mode === 'light'
